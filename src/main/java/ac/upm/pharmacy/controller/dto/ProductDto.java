@@ -1,30 +1,30 @@
 package ac.upm.pharmacy.controller.dto;
 
-
-
+import lombok.Data;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+@Data
 public class ProductDto {
 
     @NotNull
     private Long id;
 
     @NotNull
-    @NotBlank
+    @NotBlank(message = "Type must not be blank")
     private String name;
 
     @NotNull
-    @NotBlank
+    @NotBlank(message = "Type must not be blank")
     private String description;
 
     @Min(value = 0, message = "Error price")
     @NotNull
-    @NotBlank
+    @NotBlank(message = "Type must not be blank")
     private Double price;
 
-    @NotBlank
+    @NotBlank(message = "Type must not be blank")
     private Boolean perscription;
 
     public Long getId() {
