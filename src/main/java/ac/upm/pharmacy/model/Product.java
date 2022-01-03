@@ -5,7 +5,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-//@Data
+@Data
 @Entity
 public class Product {
 
