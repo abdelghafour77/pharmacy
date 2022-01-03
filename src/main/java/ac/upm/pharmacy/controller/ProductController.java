@@ -1,7 +1,7 @@
 package ac.upm.pharmacy.controller;
 
-import ac.upm.pharmacy.controller.dto.ProductDto;
 import ac.upm.pharmacy.converter.ProductConverter;
+import ac.upm.pharmacy.dto.ProductDTO;
 import ac.upm.pharmacy.service.ProductService;
 
 import lombok.Data;
@@ -18,33 +18,10 @@ import java.util.List;
 @RequestMapping("product")
 @Data
 public class ProductController {
-
-    @Autowired
     final ProductService productService;
-    @Autowired
     final ProductConverter productConverter;
-
-
-
-    //    @GetMapping("/")
-//    public ResponseEntity<List<Product>> findAll() {
-//        return ResponseEntity.status(HttpStatus.OK).body(ProductService.findAll());
-//    }
-
-//    @PostMapping("/")
-//    public Product receiveProduct(@RequestBody Product product){
-//        return product;
-//    }
-
-
-//    @Autowired
-//    @PostMapping("/")
-//    public Product receiveProduct(@RequestBody Product product){
-//        return productService.receiveProduct(product);
-//    }
-
     @PostMapping("/")
-    public ResponseEntity<?> save(@Valid @RequestBody ProductDto productDTO) throws Exception {
+    public ResponseEntity<?> save(@Valid @RequestBody ProductDTO productDTO) throws Exception {
         if (productDTO == null)
             return ResponseEntity.badRequest().body("The provided product is not valid");
         return ResponseEntity
@@ -53,7 +30,7 @@ public class ProductController {
     }
 
     @PutMapping("/")
-    public ResponseEntity<?> update(@Valid @RequestBody ProductDto productDTO) throws Exception {
+    public ResponseEntity<?> update(@Valid @RequestBody ProductDTO productDTO) throws Exception {
         if (productDTO == null)
             return ResponseEntity.badRequest().body("The provided product is not valid");
         return ResponseEntity
@@ -69,7 +46,7 @@ public class ProductController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<ProductDto>> findAll() {
+    public ResponseEntity<List<ProductDTO>> findAll() {
         return ResponseEntity.ok().body(productConverter.convertToDTOs(productService.findAll()));
     }
 }

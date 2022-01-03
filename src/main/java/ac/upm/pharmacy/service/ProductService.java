@@ -8,12 +8,13 @@ import java.util.List;
 
 public interface ProductService {
 
-//    Product save(Product product);
- //   public Product receiveProduct(Product product);
 
   Product save(Product product) throws ProductDuplicatedException;
+
   Product update(Product product)throws ProductNotFoundException;
+
   Long delete(Long id)throws ProductNotFoundException;
+
   List<Product> findAll();
 
 }

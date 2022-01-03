@@ -1,6 +1,5 @@
 package ac.upm.pharmacy.model;
 
-
 import lombok.Data;
 
 import javax.persistence.*;
@@ -12,10 +11,12 @@ public class Product {
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE)
     private Long id;
-    @Embedded
-    private Info info;
 
 
+    private String name;
+    private String description;
+    private Double price;
+    private Boolean state=false;
 
 
 }

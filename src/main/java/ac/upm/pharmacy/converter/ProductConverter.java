@@ -1,13 +1,13 @@
 package ac.upm.pharmacy.converter;
 
-import ac.upm.pharmacy.controller.dto.ProductDto;
+import ac.upm.pharmacy.dto.ProductDTO;
 import ac.upm.pharmacy.model.Product;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.config.Configuration;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ProductConverter extends AbstractConverter<Product, ProductDto> {
+public class ProductConverter extends AbstractConverter<Product, ProductDTO> {
     private final ModelMapper modelMapper;
 
     public ProductConverter(ModelMapper modelMapper) {
@@ -18,14 +18,14 @@ public class ProductConverter extends AbstractConverter<Product, ProductDto> {
     }
 
     @Override
-    public Product convertToDM(ProductDto productDto) {
-        return modelMapper.map(productDto, Product.class);
+    public Product convertToDM(ProductDTO productDTO) {
+        return modelMapper.map(productDTO, Product.class);
     }
 
 
 
     @Override
-    public ProductDto convertToDTO(Product product) {
-        return modelMapper.map(product, ProductDto.class);
+    public ProductDTO convertToDTO(Product product) {
+        return modelMapper.map(product, ProductDTO.class);
     }
 }
