@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+    />
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.19.3/inter.css"
+    />
+</head>
+<body>
+<form method="post" action="/login" th:object="${loginRequest}">
+
+<div class="mx-auto my-10 rounded-lg shadow p-10 max-w-lg">
+    <div class="mb-6">
+        <label for="email" class="text-gray-700 font-medium">Username</label>
+        <input
+                id="email"
+                name="login"
+                type="text"
+                class="block rounded-md border border-gray-300 py-2 px-4 my-2 shadow-sm w-full"
+        />
+    </div>
+    <div class="mb-6">
+        <label for="password" class="text-gray-700 font-medium">Password</label>
+        <input
+                id="password"
+                name="password"
+                type="password"
+                class="block rounded-md border border-gray-300 py-2 px-4 my-2 shadow-sm w-full"
+        />
+    </div>
+
+    <input type="submit" name="sign-in" value="login" class="bg-blue-700 py-2 rounded text-white my-2 px-4 w-full">
+
+</div>
+</form>
+</body>
+</html>
